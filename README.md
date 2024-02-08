@@ -1,2 +1,4 @@
-Basit local disn sunucu için
-Ubuntu 22.04 üzerine denendi
+- Basit local disn sunucu için
+- Ubuntu 22.04 üzerine denendi
+- DNS kaydı eklemek için **sudo ./add-dns.sh --IP=192.168.1.211 --DOMAIN=docker.home** gibi ifadeler kullanabilirsiniz veya;
+- **/etc/dnsmasq.conf* dosyasının içine **address=/docker.home/192.168.1.211** gibi bir ifade ekleyebilirsiniz.
