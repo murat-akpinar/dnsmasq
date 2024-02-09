@@ -2,7 +2,7 @@
 
 # Sistem güncellemesi ve yükseltmesi
 echo "Sistem güncelleniyor ve yükseltiliyor..."
-sudo apt update && sudo apt upgrade -y
+sudo apt update
 
 # systemd-resolved servisini durdur ve devre dışı bırak
 echo "systemd-resolved servisi durduruluyor ve devre dışı bırakılıyor..."
