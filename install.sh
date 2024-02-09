@@ -9,11 +9,6 @@ echo "systemd-resolved servisi durduruluyor ve devre dışı bırakılıyor..."
 sudo systemctl stop systemd-resolved
 sudo systemctl disable systemd-resolved
 
-# /etc/resolv.conf dosyasını kaldır ve sembolik link oluştur
-echo "/etc/resolv.conf dosyası yeniden yapılandırılıyor..."
-sudo rm /etc/resolv.conf
-echo "nameserver 127.0.0.1" | sudo tee /etc/resolv.conf
-
 # dnsmasq kurulumu
 echo "dnsmasq kuruluyor..."
 sudo apt install dnsmasq -y
@@ -22,6 +17,11 @@ sudo apt install dnsmasq -y
 echo "53 portu UFW üzerinden açılıyor..."
 sudo ufw allow 53/tcp
 sudo ufw allow 53/udp
+
+# /etc/resolv.conf dosyasını kaldır ve sembolik link oluştur
+echo "/etc/resolv.conf dosyası yeniden yapılandırılıyor..."
+sudo rm /etc/resolv.conf
+echo "nameserver 127.0.0.1" | sudo tee /etc/resolv.conf
 
 # dnsmasq servisini yeniden başlat
 sudo systemctl restart dnsmasq
