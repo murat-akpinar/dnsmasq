@@ -4,11 +4,6 @@
 echo "Sistem güncelleniyor ve yükseltiliyor..."
 sudo apt update
 
-# systemd-resolved servisini durdur ve devre dışı bırak
-echo "systemd-resolved servisi durduruluyor ve devre dışı bırakılıyor..."
-sudo systemctl stop systemd-resolved
-sudo systemctl disable systemd-resolved
-
 # dnsmasq kurulumu
 echo "dnsmasq kuruluyor..."
 sudo apt install dnsmasq -y
@@ -22,6 +17,11 @@ sudo ufw allow 53/udp
 echo "/etc/resolv.conf dosyası yeniden yapılandırılıyor..."
 sudo rm /etc/resolv.conf
 echo "nameserver 127.0.0.1" | sudo tee /etc/resolv.conf
+
+# systemd-resolved servisini durdur ve devre dışı bırak
+echo "systemd-resolved servisi durduruluyor ve devre dışı bırakılıyor..."
+sudo systemctl stop systemd-resolved
+sudo systemctl disable systemd-resolved
 
 # dnsmasq servisini yeniden başlat
 sudo systemctl restart dnsmasq
