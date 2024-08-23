@@ -22,6 +22,7 @@ sudo systemctl disable systemd-resolved
 echo "/etc/resolv.conf dosyası yeniden yapılandırılıyor..."
 sudo rm /etc/resolv.conf
 echo "nameserver 127.0.0.1" | sudo tee /etc/resolv.conf
+echo "nameserver 1.1.1.1" >> /etc/resolv.conf
 
 # dnsmasq servisini yeniden başlat
 sudo systemctl restart dnsmasq
